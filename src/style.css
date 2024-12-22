@@ -1,0 +1,47 @@
+:root {
+  --u: 4px;
+  --u2: calc(2 * var(--u));
+  --u4: calc(4 * var(--u));
+  --u8: calc(8 * var(--u));
+  --u10: calc(10 * var(--u));
+
+  --r-teal: #008080;
+  --r-grey: #c3c3c3;
+  --r-black: #000000;
+  --r-white: #fdffff;
+  --r-blue: #010081;
+  --r-purple: #5d55f6;
+
+  --c-bg-main: var(--r-teal);
+  --c-bg-dialog: var(--r-grey);
+
+  --c-text: var(--r-black);
+  --c-text-inverted: var(--r-white);
+
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+  font-size: 16px;
+
+	color: #000;
+  background-color: var(--c-bg-main);
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+.page {
+  height: 100%;
+}
+

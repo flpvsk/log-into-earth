@@ -1,0 +1,77 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: calc(var(--u) * 90);
+
+  padding-left: var(--u4);
+  padding-right: var(--u4);
+  padding-bottom: var(--u4);
+
+  margin: auto;
+  margin-top: var(--u8);
+
+  background-color: var(--c-bg-dialog);
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+
+  height: var(--u10);
+
+  padding-left: var(--u);
+
+  margin-left: calc(0px - var(--u4));
+  margin-right: calc(0px - var(--u4));
+
+  color: var(--c-text-inverted);
+  background: var(--r-blue);
+  background: linear-gradient(90deg, var(--r-blue), var(--r-purple) 100%);
+}
+
+.form-field-text__label {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+  height: calc(var(--u8) + var(--u4));
+  padding-top: var(--u2);
+  padding-bottom: var(--u2);
+}
+
+.form-field-text__input {
+  height: var(--u8);
+  width: calc(var(--u) * 50);
+
+  margin-left: var(--u2);
+
+  font-size: 1em;
+}
+
+.form-field-checkbox__label {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  height: calc(var(--u8) + var(--u4));
+
+  padding-top: var(--u2);
+  padding-bottom: var(--u2);
+}
+
+.form-field-checkbox__input {
+  margin-right: var(--u2);
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: row;
+
+  height: calc(var(--u8) + var(--u4));
+
+  padding-top: var(--u2);
+  padding-bottom: var(--u2);
+}
