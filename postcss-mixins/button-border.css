@@ -1,0 +1,19 @@
+@define-mixin button-border {
+  border-radius: 0;
+
+  border-style: solid;
+
+  border-top-width: 1px;
+  border-left-width: 1px;
+  border-top-color: var(--c-border-tl);
+  border-left-color: var(--c-border-tl);
+
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-bottom-color: var(--c-border-br);
+  border-right-color: var(--c-border-br);
+
+  box-shadow: 0px 0px 0px 1px var(--c-shadow);
+}
+
+

@@ -7,12 +7,34 @@
 
   padding-left: var(--u4);
   padding-right: var(--u4);
-  padding-bottom: var(--u4);
+  padding-bottom: var(--u6);
 
   margin: auto;
   margin-top: var(--u8);
 
-  background-color: var(--c-bg-dialog);
+  background: var(--c-bg-dialog);
+
+  @mixin shape-border;
+}
+
+.form-hero {
+  display: flex;
+  align-items: center;
+
+  height: var(--u12);
+
+  margin-top: var(--u2);
+}
+
+
+.form-hero__image {
+  height: var(--u8);
+  width: var(--u8);
+  margin-bottom: 0;
+}
+
+.form-hero__text {
+  margin-left: var(--u4);
 }
 
 .form-header {
@@ -49,29 +71,97 @@
   margin-left: var(--u2);
 
   font-size: 1em;
+
+  @mixin input-border;
 }
 
 .form-field-checkbox__label {
   display: flex;
   align-items: center;
   flex-direction: row;
+  justify-content: flex-end;
 
   height: calc(var(--u8) + var(--u4));
 
   padding-top: var(--u2);
   padding-bottom: var(--u2);
+
 }
 
 .form-field-checkbox__input {
-  margin-right: var(--u2);
+  margin-left: var(--u2);
+  height: var(--u6);
+  width: var(--u6);
+  position: relative;
+
+  appearance: none;
+  place-content: center;
+
+  background: var(--r-white);
+
+  border-radius: 0;
+
+  border-style: solid;
+
+  border-top-width: 1px;
+  border-left-width: 1px;
+  border-top-color: var(--r-black);
+  border-left-color: var(--r-black);
+
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-bottom-color: var(--r-grey);
+  border-right-color: var(--r-grey);
+
+  box-shadow: -1px -1px var(--r-dark-grey), 1px 1px var(--r-white);
+}
+
+.form-field-checkbox__input::before {
+  content: "";
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: var(--u6);
+  width: var(--u6);
+
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  line-height: 1.3em;
+}
+
+.form-field-checkbox__input:checked::before {
+  content: "X";
 }
 
 .form-actions {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 
   height: calc(var(--u8) + var(--u4));
 
-  padding-top: var(--u2);
-  padding-bottom: var(--u2);
+  margin-top: var(--u10);
+}
+
+.form-button {
+  height: calc(var(--u8) + var(--u4));
+  padding: var(--u2);
+
+  font-size: 1em;
+
+  background: var(--c-button);
+
+  @mixin button-border;
+}
+
+.form-button.form-button_default {
+  @mixin button-border;
+  box-shadow: 0px 0px 0px 1px var(--c-shadow),
+    3px 3px var(--c-shadow);
+}
+
+.form-button:nth-child(n+2) {
+  margin-left: var(--u2);
 }

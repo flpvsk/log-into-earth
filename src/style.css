@@ -1,12 +1,17 @@
 :root {
   --u: 4px;
   --u2: calc(2 * var(--u));
+  --u3: calc(3 * var(--u));
   --u4: calc(4 * var(--u));
+  --u6: calc(6 * var(--u));
   --u8: calc(8 * var(--u));
   --u10: calc(10 * var(--u));
+  --u12: calc(12 * var(--u));
 
   --r-teal: #008080;
   --r-grey: #c3c3c3;
+  --r-dark-grey: #818181;
+  --r-light-grey: #d1d1d1;
   --r-black: #000000;
   --r-white: #fdffff;
   --r-blue: #010081;
@@ -15,8 +20,21 @@
   --c-bg-main: var(--r-teal);
   --c-bg-dialog: var(--r-grey);
 
+  --c-button: var(--r-light-grey);
+
   --c-text: var(--r-black);
   --c-text-inverted: var(--r-white);
+
+  --c-border-br: var(--r-dark-grey);
+  --c-border-tl: var(--r-white);
+  --c-border-input-br: var(--r-grey);
+  --c-border-input-tl: var(--r-black);
+
+  --c-shadow: var(--r-black);
+  --c-shadow-inverted: var(--r-white);
+
+  --c-input-shadow-dark: var(--r-dark-grey);
+  --c-input-shadow-light: var(--r-white);
 
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;

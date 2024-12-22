@@ -1,0 +1,16 @@
+@define-mixin shape-border {
+  border-style: solid;
+
+  border-top-width: 2px;
+  border-left-width: 2px;
+  border-top-color: var(--c-border-tl);
+  border-left-color: var(--c-border-tl);
+
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-bottom-color: var(--c-border-br);
+  border-right-color: var(--c-border-br);
+
+  box-shadow: 1px 1px var(--c-shadow);
+}
+

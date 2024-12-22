@@ -9,7 +9,7 @@ export function Login() {
       </div>
 
       <div class="form-hero">
-        <img class="form-hero__img" src="public/key_world-0.png" />
+        <img class="form-hero__image" src="key_world-0.png" />
         <div class="form-hero__text">
           Type a user name and password to log into Earth.
         </div>
@@ -31,17 +31,17 @@ export function Login() {
 
       <div class="form-field-checkbox">
         <label class="form-field-checkbox__label">
-          <input class="form-field-checkbox__input" type="checkbox" />
           Show password
+          <input class="form-field-checkbox__input" type="checkbox" />
         </label>
       </div>
 
       <div class="form-actions">
-        <button class="form-button_default" type="submit">
-          Log in
-        </button>
         <button class="form-button" type="button">
           Forgot password
+        </button>
+        <button class="form-button form-button_default" type="submit">
+          Log in
         </button>
       </div>
 

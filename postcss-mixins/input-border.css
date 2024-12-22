@@ -1,0 +1,18 @@
+@define-mixin input-border {
+  border-radius: 0;
+
+  border-style: solid;
+
+  border-top-width: 2px;
+  border-left-width: 2px;
+  border-top-color: var(--c-border-input-tl);
+  border-left-color: var(--c-border-input-tl);
+
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-bottom-color: var(--c-border-input-br);
+  border-right-color: var(--c-border-input-br);
+
+  box-shadow: -1px -1px var(--c-input-shadow-dark), 1px 1px var(--c-input-shadow-light)}
+
+
