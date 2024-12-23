@@ -103,6 +103,7 @@
 
 .form-field-text.form-field-text_hasError .form-field-text__input {
   border-color: var(--c-error);
+  box-shadow: -1px -1px var(--c-input-shadow-dark);
 }
 
 .form-field-text.form-field-text_hasError .form-field-text__input,
