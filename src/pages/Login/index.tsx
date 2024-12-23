@@ -4,8 +4,8 @@ import { useLogIn, LogInParamsSchema } from "../../hooks/useLogIn"
 import { issuesToStr, getIssuesAtPathFromResult } from "../../utils/validation"
 import { z } from "zod"
 import { isDefined } from "../../utils/undefined"
-import { cx, hide as hideWhen, show as showWhen } from "../../utils/styling"
-import {FormEvent} from "preact/compat"
+import { cx } from "../../utils/styling"
+import { FormEvent } from "preact/compat"
 import { useUserInfo } from "../../hooks/useUserInfo"
 
 export function Login() {
@@ -113,10 +113,7 @@ export function Login() {
   }
 
   return (
-    <form
-      class="dialog"
-      novalidate
-      onSubmit={callLogIn}>
+    <form class="dialog" novalidate onSubmit={callLogIn}>
       <h1 class="dialog-header">Welcome to Earth</h1>
 
       <div class="form-hero">
@@ -131,6 +128,8 @@ export function Login() {
           Type a user name and password to log into Earth.
         </div>
       </div>
+
+      <hr class="form-separator" />
 
       <div
         class={cx({ "form-error": true, _isVisible: formIssues.length > 0 })}

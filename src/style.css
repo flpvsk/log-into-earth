@@ -9,6 +9,10 @@
   --u12: calc(12 * var(--u));
   --u24: calc(24 * var(--u));
 
+  @media only screen and (max-width: 480px) {
+    --u: 0.3rem;
+  }
+
   --r-teal: #008080;
   --r-grey: #c3c3c3;
   --r-dark-grey: #818181;
@@ -19,7 +23,7 @@
   --r-blue: #010081;
   --r-light-blue: #abc5f2;
   --r-purple: #5d55f6;
-  --r-red: #ff0081;
+  --r-red: #ff0020;
 
   --c-bg-main: var(--r-teal);
   --c-bg-dialog: var(--r-grey);
@@ -52,6 +56,8 @@
   --c-link-visited: var(--r-purple);
 
   --c-error: var(--r-red);
+
+  --c-separator: var(--r-dark-grey);
 
   /* about B612: https://b612-font.com/ */
 	font-family: B612, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -133,6 +139,10 @@ a:visited {
   & p {
     margin-top: var(--u2);
     margin-bottom: var(--u2);
+  }
+
+  @media only screen and (max-width: 480px) {
+    width: calc(100% - var(--u4));
   }
 }
 

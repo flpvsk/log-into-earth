@@ -1,6 +1,6 @@
 import { z } from "zod"
-import {makeErrorResult, makeOkResult, Result} from "../utils/result";
-import {useLocation} from "preact-iso";
+import { makeErrorResult, makeOkResult, Result } from "../utils/result"
+import { useLocation } from "preact-iso"
 
 export const UserInfoSchema = z.object({
   email: z.string().email(),
@@ -24,13 +24,13 @@ export function useUserInfo(args: UseUserInfoArgs = {}): UseUserInfoResult {
   const { route } = useLocation()
   if (userInfoResult.isError) {
     if (args.shouldRedirectToLogInIfNeeded) {
-      route('/login')
+      route("/login")
     }
     return makeErrorResult(userInfoResult.error)
   }
 
   if (args.shouldRedirectHomeIfPossible) {
-    route('/', true)
+    route("/", true)
   }
 
   return makeOkResult({
@@ -38,7 +38,7 @@ export function useUserInfo(args: UseUserInfoArgs = {}): UseUserInfoResult {
     logOut: () => {
       removeUserInfo()
       route("/login")
-    }
+    },
   })
 }
 

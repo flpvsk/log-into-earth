@@ -5,7 +5,7 @@ import { isDefined } from "../utils/undefined"
 import { Result, makeErrorResult, makeOkResult } from "../utils/result"
 
 import { z } from "zod"
-import {saveUserInfo, UserInfo} from "./useUserInfo"
+import { saveUserInfo, UserInfo } from "./useUserInfo"
 
 async function wait(s: number): Promise<void> {
   return new Promise((resolve) => {
@@ -25,7 +25,7 @@ export type UseLogInResult = [
 
 export const LogInParamsSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(1, "Password must be at least one character long"),
+  password: z.string().min(1, "Must be at least one character long"),
 })
 
 export type LogInParams = z.infer<typeof LogInParamsSchema>
@@ -34,7 +34,7 @@ async function callServer(args: LogInParams): Promise<UserInfo> {
   console.log(`Calling login for ${args.email}...`)
   console.log("This would normally be a fetch call")
 
-  if (args.password.trim().toLowerCase() === 'admin') {
+  if (args.password.trim().toLowerCase() === "admin") {
     await wait(4)
     throw new Error("Server error: timeout")
   }
