@@ -3,7 +3,7 @@
   flex-direction: column;
 
   width: 100%;
-  max-width: calc(var(--u) * 90);
+  max-width: calc(var(--u) * 92);
 
   padding-left: var(--u4);
   padding-right: var(--u4);
@@ -24,12 +24,14 @@
   height: var(--u12);
 
   margin-top: var(--u2);
+  margin-bottom: var(--u4);
 }
 
 
 .form-hero__image {
-  height: var(--u8);
-  width: var(--u8);
+  height: 32px;
+  width: 32px;
+  max-width: 32px;
   margin-bottom: 0;
 }
 
@@ -45,8 +47,8 @@
 
   padding-left: var(--u);
 
-  margin-left: calc(0px - var(--u4));
-  margin-right: calc(0px - var(--u4));
+  margin-left: calc(0rem - var(--u4));
+  margin-right: calc(0rem - var(--u4));
 
   color: var(--c-text-inverted);
   background: var(--r-blue);
@@ -66,13 +68,19 @@
 
 .form-field-text__input {
   height: var(--u8);
-  width: calc(var(--u) * 50);
+  width: calc(var(--u) * 54);
+  padding: var(--u) var(--u2);
 
   margin-left: var(--u2);
 
   font-size: 1em;
 
   @mixin input-border;
+
+  &:focus-visible {
+    outline: 1px dashed var(--c-outline);
+    outline-offset: 4px;
+  }
 }
 
 .form-field-checkbox__label {
@@ -94,6 +102,8 @@
   width: var(--u6);
   position: relative;
 
+  font-size: 1rem;
+
   appearance: none;
   place-content: center;
 
@@ -114,6 +124,11 @@
   border-right-color: var(--r-grey);
 
   box-shadow: -1px -1px var(--r-dark-grey), 1px 1px var(--r-white);
+
+  &:focus-visible {
+    outline: 1px dashed var(--c-outline);
+    outline-offset: 3px;
+  }
 }
 
 .form-field-checkbox__input::before {
@@ -126,9 +141,9 @@
   width: var(--u6);
 
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: bold;
-  line-height: 1.3em;
+  line-height: 1.2em;
 }
 
 .form-field-checkbox__input:checked::before {
@@ -149,11 +164,20 @@
   height: calc(var(--u8) + var(--u4));
   padding: var(--u2);
 
-  font-size: 1em;
+  font-size: 1rem;
 
   background: var(--c-button);
 
   @mixin button-border;
+
+  &:focus-visible {
+    outline: 1px dashed var(--c-outline);
+    outline-offset: -6px;
+  }
+
+  &:enabled:active {
+    background: var(--c-button-active);
+  }
 }
 
 .form-button.form-button_default {
@@ -165,3 +189,4 @@
 .form-button:nth-child(n+2) {
   margin-left: var(--u2);
 }
+

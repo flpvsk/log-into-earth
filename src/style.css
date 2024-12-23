@@ -1,5 +1,5 @@
 :root {
-  --u: 4px;
+  --u: 0.25rem;
   --u2: calc(2 * var(--u));
   --u3: calc(3 * var(--u));
   --u4: calc(4 * var(--u));
@@ -21,6 +21,7 @@
   --c-bg-dialog: var(--r-grey);
 
   --c-button: var(--r-light-grey);
+  --c-button-active: var(--r-grey);
 
   --c-text: var(--r-black);
   --c-text-inverted: var(--r-white);
@@ -36,10 +37,12 @@
   --c-input-shadow-dark: var(--r-dark-grey);
   --c-input-shadow-light: var(--r-white);
 
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --c-outline: var(--r-black);
+
+  /* about B612: https://b612-font.com/ */
+	font-family: B612, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-  font-size: 16px;
 
 	color: #000;
   background-color: var(--c-bg-main);
