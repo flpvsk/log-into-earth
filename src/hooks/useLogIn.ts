@@ -33,8 +33,15 @@ export type LogInParams = z.infer<typeof LogInParamsSchema>
 async function callServer(args: LogInParams): Promise<UserInfo> {
   console.log(`Calling login for ${args.email}...`)
   console.log("This would normally be a fetch call")
+
+  if (args.password.trim().toLowerCase() === 'admin') {
+    await wait(4)
+    throw new Error("Server error: timeout")
+  }
+
   await wait(2)
-  if (args.password.length < 3) throw new Error("Wrong email or password")
+  if (args.password.length < 5) throw new Error("Wrong email or password")
+
   return {
     email: args.email,
     username: args.email.split("@")[0],

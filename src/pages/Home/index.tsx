@@ -14,7 +14,7 @@ export function Home() {
       <h1 class="dialog-header">Earth</h1>
       <p>
         Welcome {userInfo.username},<br/>
-        Glad you've made it!
+        Glad you’ve made it!
       </p>
       <p>
         <a href="javascript:void(0)" onClick={logOut}>Log out</a>

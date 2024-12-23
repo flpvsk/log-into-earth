@@ -125,7 +125,7 @@ export function Login() {
           width="32px"
           height="32px"
           class="form-hero__image"
-          alt="Graphic of a key with a keyring that has a picture of Earth on it"
+          alt="Graphic of a key"
         />
         <div class="form-hero__text">
           Type a user name and password to log into Earth.
