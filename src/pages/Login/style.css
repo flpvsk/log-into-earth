@@ -232,7 +232,9 @@
   width: var(--u24);
 
   font-size: 1rem;
+  font-weight: 400;
 
+  color: var(--c-text);
   background: var(--c-button);
 
   @mixin button-border;
