@@ -28,7 +28,7 @@ export type UseLogInResult = [
 
 export const LogInParamsSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(1),
+  password: z.string().min(1, "Password must be at least one character long"),
 })
 
 export type LogInParams = z.infer<typeof LogInParamsSchema>
@@ -36,7 +36,7 @@ export type LogInParams = z.infer<typeof LogInParamsSchema>
 async function callServer(args: LogInParams): Promise<LogInData> {
   console.log(`Calling login for ${args.email}...`)
   console.log("This would normally be a fetch call")
-  await wait(4)
+  await wait(3)
   const a = true
   if (a) throw new Error("Wrong email or password")
   return {

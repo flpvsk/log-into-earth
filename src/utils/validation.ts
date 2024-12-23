@@ -43,3 +43,7 @@ export function getIssuesAtPathFromResult(
   if (result.isSuccess) return []
   return getIssuesAtPath(path, result.error)
 }
+
+export function issuesToStr(issues: z.ZodIssue[]): string {
+  return issues.map((i) => i.message).join(";")
+}

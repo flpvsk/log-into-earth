@@ -1,10 +1,11 @@
 import "./style.css"
 import { useState } from "preact/hooks"
 import { useLogIn, LogInParamsSchema } from "../../hooks/useLogIn"
-import { getIssuesAtPathFromResult } from "../../utils/validation"
+import { issuesToStr, getIssuesAtPathFromResult } from "../../utils/validation"
 import { z } from "zod"
 import { isDefined } from "../../utils/undefined"
-import { cx } from "../../utils/styling"
+import { cx, hide as hideWhen, show as showWhen } from "../../utils/styling"
+import {FormEvent} from "preact/compat"
 
 export function Login() {
   const [shouldShowPassword, setShouldShowPassword] = useState(false)
@@ -42,6 +43,34 @@ export function Login() {
   function onPasswordInput() {
     setShowPassValidation(false)
     setShowFormValidation(false)
+  }
+
+  function callLogIn(e: FormEvent) {
+    e.preventDefault()
+
+    if (logInState.isLoading) return
+    if (logInState.result?.isSuccess) return
+
+    if (!e.target) return
+    const form = e.target as HTMLFormElement
+    const data = {
+      email: form.email.value,
+      password: form.password.value,
+    }
+
+    const validationResult = LogInParamsSchema.safeParse(data)
+    if (!validationResult.success) {
+      setShowEmailValidation(true)
+      setShowPassValidation(true)
+      return
+    }
+
+    setShowEmailValidation(false)
+    setShowPassValidation(false)
+
+    logIn(data)
+
+    setShowFormValidation(true)
   }
 
   let emailValidationIssues: z.ZodIssue[] = []
@@ -85,34 +114,7 @@ export function Login() {
     <form
       class="login-form"
       novalidate
-      onSubmit={(e) => {
-        e.preventDefault()
-
-        if (logInState.isLoading) return
-        if (logInState.result?.isSuccess) return
-
-        if (!e.target) return
-        const form = e.target as HTMLFormElement
-        const data = {
-          email: form.email.value,
-          password: form.password.value,
-        }
-
-        const validationResult = LogInParamsSchema.safeParse(data)
-        if (!validationResult.success) {
-          setShowEmailValidation(true)
-          setShowPassValidation(true)
-          return
-        }
-
-        setShowEmailValidation(false)
-        setShowPassValidation(false)
-
-        logIn(data)
-
-        setShowFormValidation(true)
-      }}
-    >
+      onSubmit={callLogIn}>
       <div class="form-header">Welcome to Earth</div>
 
       <div class="form-hero">
@@ -127,11 +129,12 @@ export function Login() {
         </div>
       </div>
 
-      {formIssues.length > 0 && (
-        <div class="form-error">
-          {formIssues.map((i) => i.message).join(";")}
-        </div>
-      )}
+      <div
+        class={cx({ "form-error": true, _isVisible: formIssues.length > 0 })}
+        aria-live="polite"
+      >
+        {issuesToStr(formIssues)}
+      </div>
 
       <div
         class={cx({
@@ -146,20 +149,20 @@ export function Login() {
             type="email"
             required
             aria-invalid={emailValidationIssues.length > 0}
-            aria-aria-errormessage={emailValidationIssues
-              .map((i) => i.message)
-              .join(";")}
+            aria-aria-errormessage={issuesToStr(emailValidationIssues)}
             onChange={updateEmail}
             onInput={onEmailInput}
-            autofocus
             class="form-field-text__input"
           />
         </label>
-        {emailValidationIssues.map((issue, i) => (
-          <div key={i} class="form-field-text__error">
-            {issue.message}
-          </div>
-        ))}
+        <div
+          class={cx({
+            "form-field-text__error": true,
+            _isVisible: emailValidationIssues.length > 0,
+          })}
+        >
+          {issuesToStr(emailValidationIssues)}
+        </div>
       </div>
 
       <div
@@ -173,20 +176,22 @@ export function Login() {
           <input
             name="password"
             type={passwordInputType}
+            required
             aria-invalid={passwordValidationIssues.length > 0}
-            aria-aria-errormessage={passwordValidationIssues
-              .map((i) => i.message)
-              .join(";")}
+            aria-aria-errormessage={issuesToStr(passwordValidationIssues)}
             onChange={updatePassword}
             onInput={onPasswordInput}
             class="form-field-text__input"
           />
         </label>
-        {passwordValidationIssues.map((issue, i) => (
-          <div key={i} class="form-field-text__error">
-            {issue.message}
-          </div>
-        ))}
+        <div
+          class={cx({
+            "form-field-text__error": true,
+            _isVisible: passwordValidationIssues.length > 0,
+          })}
+        >
+          {issuesToStr(passwordValidationIssues)}
+        </div>
       </div>
 
       <div class="form-field-checkbox">
@@ -207,8 +212,12 @@ export function Login() {
           type="submit"
           disabled={logInState.isLoading}
           class="form-button form-button_default"
+          aria-live="polite"
         >
-          Log in
+          <span class={cx(hideWhen(logInState.isLoading))}>Log in</span>
+          <span class={cx(showWhen(logInState.isLoading))}>
+            Loading...
+          </span>
         </button>
 
         <div class="form-field-link">

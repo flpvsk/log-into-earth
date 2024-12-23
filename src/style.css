@@ -7,10 +7,12 @@
   --u8: calc(8 * var(--u));
   --u10: calc(10 * var(--u));
   --u12: calc(12 * var(--u));
+  --u24: calc(24 * var(--u));
 
   --r-teal: #008080;
   --r-grey: #c3c3c3;
   --r-dark-grey: #818181;
+  --r-darker-grey: #414141;
   --r-light-grey: #d1d1d1;
   --r-black: #000000;
   --r-white: #fdffff;
@@ -26,6 +28,7 @@
   --c-button-active: var(--r-grey);
 
   --c-text: var(--r-black);
+  --c-text-subtle: var(--r-darker-grey);
   --c-text-inverted: var(--r-white);
 
   --c-border-br: var(--r-dark-grey);
@@ -98,4 +101,12 @@ a:visited {
   &:focus-visible {
     outline: 1px dotted var(--c-link-visible);
   }
+}
+
+._isVisible {
+  visibility: visible;
+}
+
+._isHidden {
+  visibility: hidden;
 }

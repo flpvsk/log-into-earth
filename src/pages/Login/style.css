@@ -24,7 +24,6 @@
   height: var(--u12);
 
   margin-top: var(--u2);
-  margin-bottom: var(--u4);
 }
 
 
@@ -72,7 +71,6 @@
 
   height: var(--u12);
   padding-top: var(--u2);
-  padding-bottom: var(--u2);
 }
 
 .form-field-text__input {
@@ -114,6 +112,7 @@
 .form-field-text__error {
   display: flex;
   justify-content: flex-end;
+  height: var(--u4);
 
   color: var(--c-error);
   font-size: 0.82em;
@@ -122,9 +121,13 @@
 .form-error {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 
+  height: var(--u4);
   color: var(--c-error);
   font-size: 0.82em;
+
+  visibility: hidden;
 }
 
 
@@ -213,6 +216,7 @@
 .form-button {
   height: var(--u12);
   padding: var(--u2);
+  width: var(--u24);
 
   font-size: 1rem;
 
@@ -233,6 +237,18 @@
   &:hover:not(:focus-visible) {
     outline: 1px dotted var(--c-outline-subtle);
   }
+
+  & span._isVisible {
+    display: inline-block;
+  }
+
+  & span._isHidden {
+    display: none;
+  }
+}
+
+.form-button:disabled {
+  color: var(--c-text-subtle);
 }
 
 .form-button.form-button_default {
