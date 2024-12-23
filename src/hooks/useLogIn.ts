@@ -1,17 +1,19 @@
-import { useState } from 'preact/hooks'
-import {isDefined} from '../utils/undefined'
-import {Result, makeErrorResult, makeOkResult} from '../utils/result'
-import {useLocation} from 'preact-iso'
+import { useState } from "preact/hooks"
+import { useLocation } from "preact-iso"
+
+import { isDefined } from "../utils/undefined"
+import { Result, makeErrorResult, makeOkResult } from "../utils/result"
+
+import { z } from "zod"
 
 async function wait(s: number): Promise<void> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => resolve(), s * 1000)
   })
 }
 
-
 export interface LogInData {
-  username: string
+  email: string
 }
 
 export interface UseLogInState {
@@ -20,21 +22,25 @@ export interface UseLogInState {
 }
 
 export type UseLogInResult = [
-  doLogIn: (args: LogInParams) => void,
-  logInState: UseLogInState
+  doLogIn: (_args: LogInParams) => void,
+  logInState: UseLogInState,
 ]
 
-export interface LogInParams {
-  username: string
-  password: string
-}
+export const LogInParamsSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(1),
+})
+
+export type LogInParams = z.infer<typeof LogInParamsSchema>
 
 async function callServer(args: LogInParams): Promise<LogInData> {
-  console.log(`Calling login for ${args.username}...`)
+  console.log(`Calling login for ${args.email}...`)
   console.log("This would normally be a fetch call")
   await wait(4)
+  const a = true
+  if (a) throw new Error("Wrong email or password")
   return {
-    username: args.username,
+    email: args.email,
   }
 }
 
@@ -46,17 +52,25 @@ export function useLogIn(): UseLogInResult {
   function logIn(args: LogInParams) {
     if (promise) return
 
-    const newPromise = callServer(args)
-      .then(result => {
+    const argsValidationResult = LogInParamsSchema.safeParse(args)
+    if (!argsValidationResult.success) {
+      setResult(makeErrorResult(argsValidationResult.error))
+      return
+    }
+
+    const newPromise = callServer(argsValidationResult.data)
+      .then((result) => {
         setResult(makeOkResult(result))
         setPromise(undefined)
         route("/", true)
       })
       .catch((e) => {
+        setPromise(undefined)
         setResult(makeErrorResult(e))
       })
 
     setPromise(newPromise)
+    setResult(undefined)
   }
 
   return [
@@ -64,6 +78,6 @@ export function useLogIn(): UseLogInResult {
     {
       isLoading: isDefined(promise),
       result,
-    }
+    },
   ]
 }

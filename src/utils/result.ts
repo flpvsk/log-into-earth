@@ -1,7 +1,9 @@
+import { ZodError } from "zod"
+
 export type ErrorResult = {
   isError: true
   isSuccess: false
-  error: Error
+  error: Error | ZodError
 }
 
 export type OkResult<T> = {

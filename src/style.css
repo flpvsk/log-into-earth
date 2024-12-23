@@ -15,7 +15,9 @@
   --r-black: #000000;
   --r-white: #fdffff;
   --r-blue: #010081;
+  --r-light-blue: #abc5f2;
   --r-purple: #5d55f6;
+  --r-red: #ff0081;
 
   --c-bg-main: var(--r-teal);
   --c-bg-dialog: var(--r-grey);
@@ -38,6 +40,14 @@
   --c-input-shadow-light: var(--r-white);
 
   --c-outline: var(--r-black);
+  --c-outline-subtle: var(--r-dark-grey);
+
+  --c-selection: var(--r-blue);
+
+  --c-link: var(--r-blue);
+  --c-link-visited: var(--r-purple);
+
+  --c-error: var(--r-red);
 
   /* about B612: https://b612-font.com/ */
 	font-family: B612, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -66,3 +76,26 @@ body {
   height: 100%;
 }
 
+::selection {
+  background-color: var(--c-selection);
+  color: var(--r-white);
+}
+
+a {
+  line-height: 2rem;
+
+  color: var(--c-link);
+  outline-offset: 1px;
+
+  &:focus-visible {
+    outline: 1px dotted var(--c-link);
+  }
+}
+
+a:visited {
+  color: var(--c-link-visited);
+
+  &:focus-visible {
+    outline: 1px dotted var(--c-link-visible);
+  }
+}
