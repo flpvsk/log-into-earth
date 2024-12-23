@@ -6,8 +6,11 @@ import { z } from "zod"
 import { isDefined } from "../../utils/undefined"
 import { cx, hide as hideWhen, show as showWhen } from "../../utils/styling"
 import {FormEvent} from "preact/compat"
+import { useUserInfo } from "../../hooks/useUserInfo"
 
 export function Login() {
+  useUserInfo({ shouldRedirectHomeIfPossible: true })
+
   const [shouldShowPassword, setShouldShowPassword] = useState(false)
   const [logIn, logInState] = useLogIn()
 

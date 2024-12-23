@@ -5,6 +5,7 @@ import { isDefined } from "../utils/undefined"
 import { Result, makeErrorResult, makeOkResult } from "../utils/result"
 
 import { z } from "zod"
+import {saveUserInfo, UserInfo} from "./useUserInfo"
 
 async function wait(s: number): Promise<void> {
   return new Promise((resolve) => {
@@ -12,14 +13,9 @@ async function wait(s: number): Promise<void> {
   })
 }
 
-export interface LogInData {
-  email: string
-  username: string
-}
-
 export interface UseLogInState {
   isLoading: boolean
-  result?: Result<LogInData>
+  result?: Result<UserInfo>
 }
 
 export type UseLogInResult = [
@@ -34,10 +30,10 @@ export const LogInParamsSchema = z.object({
 
 export type LogInParams = z.infer<typeof LogInParamsSchema>
 
-async function callServer(args: LogInParams): Promise<LogInData> {
+async function callServer(args: LogInParams): Promise<UserInfo> {
   console.log(`Calling login for ${args.email}...`)
   console.log("This would normally be a fetch call")
-  await wait(3)
+  await wait(2)
   if (args.password.length < 3) throw new Error("Wrong email or password")
   return {
     email: args.email,
@@ -47,7 +43,7 @@ async function callServer(args: LogInParams): Promise<LogInData> {
 
 export function useLogIn(): UseLogInResult {
   const [promise, setPromise] = useState<Promise<void> | undefined>()
-  const [result, setResult] = useState<Result<LogInData> | undefined>()
+  const [result, setResult] = useState<Result<UserInfo> | undefined>()
   const { route } = useLocation()
 
   function logIn(args: LogInParams) {
@@ -61,6 +57,7 @@ export function useLogIn(): UseLogInResult {
 
     const newPromise = callServer(argsValidationResult.data)
       .then((result) => {
+        saveUserInfo(result)
         setResult(makeOkResult(result))
         setPromise(undefined)
         route("/", true)
