@@ -111,3 +111,49 @@ a:visited {
 ._isHidden {
   visibility: hidden;
 }
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: calc(var(--u) * 92);
+
+  padding-left: var(--u4);
+  padding-right: var(--u4);
+  padding-bottom: var(--u6);
+
+  margin: auto;
+  margin-top: var(--u8);
+
+  background: var(--c-bg-dialog);
+
+  @mixin shape-border;
+
+  & p {
+    margin-top: var(--u2);
+    margin-bottom: var(--u4);
+  }
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+
+  height: var(--u10);
+
+  padding-left: var(--u);
+
+  margin-left: calc(0rem - var(--u4));
+  margin-right: calc(0rem - var(--u4));
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+  color: var(--c-text-inverted);
+  font-size: 1rem;
+  font-weight: 400;
+
+  background: var(--r-blue);
+  background: linear-gradient(90deg, var(--r-blue), var(--r-purple) 100%);
+}

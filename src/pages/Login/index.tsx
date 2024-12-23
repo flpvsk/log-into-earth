@@ -115,10 +115,10 @@ export function Login() {
 
   return (
     <form
-      class="login-form"
+      class="dialog"
       novalidate
       onSubmit={callLogIn}>
-      <div class="form-header">Welcome to Earth</div>
+      <h1 class="dialog-header">Welcome to Earth</h1>
 
       <div class="form-hero">
         <img

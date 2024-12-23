@@ -1,5 +1,4 @@
 import {useUserInfo} from "../../hooks/useUserInfo"
-import "./style.css"
 
 export function Home() {
   const userInfoResult = useUserInfo({ shouldRedirectToLogInIfNeeded: true })
@@ -11,11 +10,15 @@ export function Home() {
   const { userInfo, logOut } = userInfoResult.data
 
   return (
-    <div class="home">
-      Welcome, {userInfo.username}!
-      <div>
+    <div class="dialog">
+      <h1 class="dialog-header">Earth</h1>
+      <p>
+        Welcome {userInfo.username},<br/>
+        Glad you've made it!
+      </p>
+      <p>
         <a href="javascript:void(0)" onClick={logOut}>Log out</a>
-      </div>
+      </p>
     </div>
   )
 

@@ -8,6 +8,7 @@ import {
 
 import { Home } from "./pages/Home/index.jsx"
 import { Login } from "./pages/Login/index.jsx"
+import { ForgotPassword } from "./pages/ForgotPassword/index.jsx"
 import { NotFound } from "./pages/_404.jsx"
 import "./style.css"
 
@@ -18,6 +19,7 @@ export function App() {
         <Router>
           <Route path="/" component={Home} />
           <Route path="/login" component={Login} />
+          <Route path="/forgot-password" component={ForgotPassword} />
           <Route default component={NotFound} />
         </Router>
       </main>

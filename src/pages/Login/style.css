@@ -1,22 +1,3 @@
-.login-form {
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-  max-width: calc(var(--u) * 92);
-
-  padding-left: var(--u4);
-  padding-right: var(--u4);
-  padding-bottom: var(--u6);
-
-  margin: auto;
-  margin-top: var(--u8);
-
-  background: var(--c-bg-dialog);
-
-  @mixin shape-border;
-}
-
 .form-hero {
   display: flex;
   align-items: center;
@@ -25,7 +6,6 @@
 
   margin-top: var(--u2);
 }
-
 
 .form-hero__image {
   height: 32px;
@@ -36,22 +16,6 @@
 
 .form-hero__text {
   margin-left: var(--u4);
-}
-
-.form-header {
-  display: flex;
-  align-items: center;
-
-  height: var(--u10);
-
-  padding-left: var(--u);
-
-  margin-left: calc(0rem - var(--u4));
-  margin-right: calc(0rem - var(--u4));
-
-  color: var(--c-text-inverted);
-  background: var(--r-blue);
-  background: linear-gradient(90deg, var(--r-blue), var(--r-purple) 100%);
 }
 
 .form-field-link {
