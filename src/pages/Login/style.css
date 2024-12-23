@@ -91,6 +91,7 @@
   @media only screen and (max-width: 480px) {
     margin-left: 0;
     margin-top: var(--u);
+    margin-bottom: var(--u);
     width: 100%;
   }
 }
