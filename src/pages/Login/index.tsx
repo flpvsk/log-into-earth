@@ -95,7 +95,6 @@ export function Login() {
   if (showPassValidation) {
     const validationResult =
       LogInParamsSchema.shape.password.safeParse(password)
-    console.log("va", validationResult)
     if (!validationResult.success) {
       passwordValidationIssues = validationResult.error.issues
     }
@@ -136,6 +135,7 @@ export function Login() {
       <div
         class={cx({ "form-error": true, _isVisible: formIssues.length > 0 })}
         aria-live="polite"
+        role="alert"
       >
         {issuesToStr(formIssues)}
       </div>
@@ -165,6 +165,7 @@ export function Login() {
             "form-field-text__error": true,
             _isVisible: emailValidationIssues.length > 0,
           })}
+          aria-live="polite"
         >
           {issuesToStr(emailValidationIssues)}
         </div>
@@ -195,6 +196,7 @@ export function Login() {
             "form-field-text__error": true,
             _isVisible: passwordValidationIssues.length > 0,
           })}
+          aria-live="polite"
         >
           {issuesToStr(passwordValidationIssues)}
         </div>
@@ -220,10 +222,7 @@ export function Login() {
           class="form-button form-button_default"
           aria-live="polite"
         >
-          <span class={cx(hideWhen(logInState.isLoading))}>Log in</span>
-          <span class={cx(showWhen(logInState.isLoading))}>
-            Loading...
-          </span>
+          {logInState.isLoading ? "Loading..." : "Log in"}
         </button>
 
         <div class="form-field-link">

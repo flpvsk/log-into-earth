@@ -202,14 +202,6 @@
   &:hover:not(:focus-visible) {
     outline: 1px dotted var(--c-outline-subtle);
   }
-
-  & span._isVisible {
-    display: inline-block;
-  }
-
-  & span._isHidden {
-    display: none;
-  }
 }
 
 .form-button:disabled {

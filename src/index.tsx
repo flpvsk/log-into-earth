@@ -15,14 +15,14 @@ import "./style.css"
 export function App() {
   return (
     <LocationProvider>
-      <main class="page">
+      <div class="page">
         <Router>
           <Route path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route default component={NotFound} />
         </Router>
-      </main>
+      </div>
     </LocationProvider>
   )
 }
