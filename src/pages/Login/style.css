@@ -30,6 +30,7 @@
 .form-field-link {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 
   height: var(--u12);
   padding-top: var(--u2);

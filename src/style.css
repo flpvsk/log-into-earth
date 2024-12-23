@@ -170,3 +170,30 @@ a:visited {
   background: var(--r-blue);
   background: linear-gradient(90deg, var(--r-blue), var(--r-purple) 100%);
 }
+
+.dialog-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: var(--u12);
+  padding-top: var(--u2);
+
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.dialog-link__a {
+  width: 100%;
+}
+
+.dialog-pic-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dialog-pic-text img {
+  margin-left: var(--u2);
+}

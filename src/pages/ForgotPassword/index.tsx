@@ -12,9 +12,11 @@ export function ForgotPassword() {
         Any valid email and a password with more than 5 characters will log you
         in.
       </p>
-      <p>
-        <a href="/login">Log In</a>
-      </p>
+      <div class="dialog-link">
+        <a class="dialog-link__a" href="/login">
+          Log in
+        </a>
+      </div>
     </div>
   )
 }
