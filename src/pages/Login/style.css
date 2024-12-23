@@ -206,7 +206,7 @@
 }
 
 .form-field-checkbox__input:checked::before {
-  content: url("checkmark.png");
+  content: url('../../assets/checkmark.png');
 }
 
 .form-actions {

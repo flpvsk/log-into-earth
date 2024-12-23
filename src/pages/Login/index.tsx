@@ -7,6 +7,7 @@ import { isDefined } from "../../utils/undefined"
 import { cx } from "../../utils/styling"
 import { FormEvent } from "preact/compat"
 import { useUserInfo } from "../../hooks/useUserInfo"
+import keyIcon from "../../assets/key_world-0.png"
 
 export function Login() {
   useUserInfo({ shouldRedirectHomeIfPossible: true })
@@ -118,7 +119,7 @@ export function Login() {
 
       <div class="form-hero">
         <img
-          src="key_world-0.png"
+          src={keyIcon}
           width="32px"
           height="32px"
           class="form-hero__image"
