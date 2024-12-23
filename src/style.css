@@ -25,6 +25,7 @@
   --c-bg-dialog: var(--r-grey);
 
   --c-button: var(--r-light-grey);
+  --c-button-disabled: var(--r-grey);
   --c-button-active: var(--r-grey);
 
   --c-text: var(--r-black);

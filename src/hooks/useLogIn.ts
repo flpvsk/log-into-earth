@@ -14,6 +14,7 @@ async function wait(s: number): Promise<void> {
 
 export interface LogInData {
   email: string
+  username: string
 }
 
 export interface UseLogInState {
@@ -37,10 +38,10 @@ async function callServer(args: LogInParams): Promise<LogInData> {
   console.log(`Calling login for ${args.email}...`)
   console.log("This would normally be a fetch call")
   await wait(3)
-  const a = true
-  if (a) throw new Error("Wrong email or password")
+  if (args.password.length < 3) throw new Error("Wrong email or password")
   return {
     email: args.email,
+    username: args.email.split("@")[0],
   }
 }
 

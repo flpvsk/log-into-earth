@@ -249,6 +249,7 @@
 
 .form-button:disabled {
   color: var(--c-text-subtle);
+  background: var(--c-button-disabled);
 }
 
 .form-button.form-button_default {

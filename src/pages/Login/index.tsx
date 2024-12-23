@@ -123,6 +123,7 @@ export function Login() {
           width="32px"
           height="32px"
           class="form-hero__image"
+          alt="Graphic of a key with a keyring that has a picture of Earth on it"
         />
         <div class="form-hero__text">
           Type a user name and password to log into Earth.
@@ -147,9 +148,10 @@ export function Login() {
           <input
             name="email"
             type="email"
+            autocomplete="username"
             required
             aria-invalid={emailValidationIssues.length > 0}
-            aria-aria-errormessage={issuesToStr(emailValidationIssues)}
+            aria-errormessage={issuesToStr(emailValidationIssues)}
             onChange={updateEmail}
             onInput={onEmailInput}
             class="form-field-text__input"
@@ -176,9 +178,10 @@ export function Login() {
           <input
             name="password"
             type={passwordInputType}
+            autocomplete="current-password"
             required
             aria-invalid={passwordValidationIssues.length > 0}
-            aria-aria-errormessage={issuesToStr(passwordValidationIssues)}
+            aria-errormessage={issuesToStr(passwordValidationIssues)}
             onChange={updatePassword}
             onInput={onPasswordInput}
             class="form-field-text__input"
