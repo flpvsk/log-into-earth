@@ -7,7 +7,8 @@ import { isDefined } from "../../utils/undefined"
 import { cx } from "../../utils/styling"
 import { FormEvent } from "preact/compat"
 import { useUserInfo } from "../../hooks/useUserInfo"
-import keyIcon from "../../assets/key_world-0.png"
+import keyIcon from "../../assets/key.png"
+import keyIcon2x from "../../assets/key@2x.png"
 
 export function Login() {
   useUserInfo({ shouldRedirectHomeIfPossible: true })
@@ -120,8 +121,9 @@ export function Login() {
       <div class="form-hero">
         <img
           src={keyIcon}
-          width="32px"
-          height="32px"
+          srcset={`${keyIcon2x} 2x`}
+          width="48px"
+          height="48px"
           class="form-hero__image"
           alt="Graphic of a key"
         />

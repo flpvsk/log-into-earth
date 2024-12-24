@@ -1,5 +1,5 @@
 import { useUserInfo } from "../../hooks/useUserInfo"
-import earthImg from "../../assets/earth.png"
+import earthImg from "../../assets/earth.gif"
 
 export function Home() {
   const userInfoResult = useUserInfo({ shouldRedirectToLogInIfNeeded: true })
