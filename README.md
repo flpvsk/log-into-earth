@@ -22,4 +22,4 @@ with no third-party component libraries.
 ## TODOs
 
 List of potential improvements and bugs is in
-[TODO.md.](./TODO.md)
+[TODO.md](./TODO.md).
