@@ -25,7 +25,7 @@ export type UseLogInResult = [
 
 export const LogInParamsSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(1, "Must be at least one character long"),
+  password: z.string().min(1, "Password can not be empty"),
 })
 
 export type LogInParams = z.infer<typeof LogInParamsSchema>
