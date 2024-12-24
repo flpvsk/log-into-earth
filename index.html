@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Log into Earth</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log linto Earth</title>
 
     <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
@@ -17,23 +17,28 @@
       // When the single page app is loaded further down in this file,
       // the correct url will be waiting in the browser's history for
       // the single page app to route accordingly.
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) {
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+      ;(function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&")
+            })
+            .join("?")
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash,
+          )
         }
-      }(window.location))
+      })(window.location)
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
-
-		<script type="module" crossorigin src="/assets/index-C6ZjoaGu.js"></script>
-		<link rel="stylesheet" crossorigin href="/assets/index-DtC4JVO-.css">
-	</head>
-	<body>
-		<div id="app"></div>
-	</body>
+    <script type="module" crossorigin src="/assets/index-kNQCFzkS.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DtC4JVO-.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
 </html>
