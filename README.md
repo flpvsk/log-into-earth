@@ -6,6 +6,9 @@ Login form in the style inspired by Windows 95. Minimum
 production dependencies. All the styles are written by hand
 with no third-party component libraries.
 
+**Live:
+[https://earth.flpvsk.com](https://earth.flpvsk.com)**
+
 ## Commands
 
 - `npm run dev` - Starts a dev server at http://localhost:5173/
