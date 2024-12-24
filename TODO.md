@@ -18,9 +18,8 @@ This is a list of tasks I haven't had the time to get to.
    I was hoping to use the Preact prerender to at least make
    it an SSR, but it's failing with an obscure error
    (`window is not defined`). I'm suspecting the error is
-   caused by the single third-party dependency of the
-   project: [Zod](https://zod.dev/). I'm using it for
-   validation.
+   caused by a third-party dependency of the project:
+   [Zod](https://zod.dev/). I'm using it for validation.
 
    One way to make it Server-Sider-Render-able might be to
    either fix Zod or to remove it all together.
