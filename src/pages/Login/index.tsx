@@ -128,7 +128,7 @@ export function Login() {
           alt="Graphic of a key"
         />
         <div class="form-hero__text">
-          Type a user name and password to log into Earth.
+          Type your email and password to log into Earth.
         </div>
       </div>
 
