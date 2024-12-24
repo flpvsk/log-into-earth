@@ -1,15 +1,25 @@
-# `create-preact`
+# Log into Earth
 
-<h2 align="center">
-  <img height="256" width="256" src="./src/assets/preact.svg">
-</h2>
+## Summary
 
-<h3 align="center">Get started using Preact and Vite!</h3>
+Login form in the style inspired by Windows 95. Minimum
+production dependencies. All the styles are written by hand
+with no third-party component libraries.
 
-## Getting Started
+## Commands
 
--   `npm run dev` - Starts a dev server at http://localhost:5173/
+- `npm run dev` - Starts a dev server at http://localhost:5173/
 
--   `npm run build` - Builds for production, emitting to `dist/`. Prerenders all found routes in app to static HTML
+- `npm run build` - Builds for production, emitting to `dist/`
 
--   `npm run preview` - Starts a server at http://localhost:4173/ to test production build locally
+- `npm run preview` - Starts a server at http://localhost:4173/ to test production build locally
+
+- `npm run deploy` - Deploys to gh-pages
+
+- `npm run check:fix` - Reformats, lints and type checks the
+  code
+
+## TODOs
+
+List of potential improvements and bugs is in
+[TODO.md.](./TODO.md)
