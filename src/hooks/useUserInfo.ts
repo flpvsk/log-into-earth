@@ -22,43 +22,58 @@ export interface UseUserInfoArgs {
 export function useUserInfo(args: UseUserInfoArgs = {}): UseUserInfoResult {
   const userInfoResult = getUserInfo()
   const { route } = useLocation()
+
   if (userInfoResult.isError) {
     if (args.shouldRedirectToLogInIfNeeded) {
-      route("/login")
+      if (typeof history !== "undefined") {
+        route("/login")
+      }
     }
     return makeErrorResult(userInfoResult.error)
   }
 
   if (args.shouldRedirectHomeIfPossible) {
-    route("/", true)
+    if (typeof history !== "undefined") {
+      route("/", true)
+    }
   }
 
   return makeOkResult({
     userInfo: userInfoResult.data,
     logOut: () => {
       removeUserInfo()
-      route("/login")
+      if (typeof history !== "undefined") {
+        route("/login")
+      }
     },
   })
 }
 
+function getWindow(): Window | undefined {
+  if (typeof window !== "undefined") {
+    return window
+  }
+
+  return undefined
+}
+
 export function saveUserInfo(userInfo: UserInfo): void {
   const parsed = UserInfoSchema.parse(userInfo)
-  window.localStorage.setItem("user", JSON.stringify(parsed))
+  getWindow()?.localStorage.setItem("user", JSON.stringify(parsed))
 }
 
 export function getUserInfo(): Result<UserInfo> {
   try {
-    const raw = window.localStorage.getItem("user")
+    const raw = getWindow()?.localStorage.getItem("user")
     if (!raw) throw new Error("User not logged in")
     const json = JSON.parse(raw)
     return makeOkResult(UserInfoSchema.parse(json))
   } catch (e: unknown) {
-    window.localStorage.removeItem("user")
+    getWindow()?.localStorage.removeItem("user")
     return makeErrorResult(e as Error)
   }
 }
 
 export function removeUserInfo(): void {
-  window.localStorage.removeItem("user")
+  getWindow()?.localStorage.removeItem("user")
 }
